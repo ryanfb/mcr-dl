@@ -54,7 +54,7 @@ mycore[:height] = doc.xpath('/imageinfo/@height').first.value.to_i
 mycore[:tiles] = doc.xpath('/imageinfo/@tiles').first.value.to_i
 mycore[:zoom_level] = doc.xpath('/imageinfo/@zoomLevel').first.value.to_i
 $stderr.puts "MCR derivate parameters:\n#{JSON.pretty_generate(mycore)}"
-output_filename = File.basename(mycore[:derivate],".#{mycore[:format]}") + '.' + mycore[:format]
+output_filename = File.basename(mycore[:path],".#{mycore[:format]}") + '.' + mycore[:format]
 
 max_level = mycore[:zoom_level]
 $stderr.puts "#{max_level} tile levels"
