@@ -6,7 +6,7 @@ Download full-resolution images for a given MyCoRe `.xml` URL.
 
 MyCoRe provides a [tool for slicing images into tiles](https://github.com/MyCoRe-Org/image-tiler/blob/master/src/main/java/org/mycore/imagetiler/MCRImage.java). This re-assembles those tiles as served up by MCRTileServlet into a full image.
 
-See also: [dzi-dl](https://github.com/ryanfb/dzi-dl), [iiif-dl](https://github.com/ryanfb/iiif-dl)
+See also: [dzi-dl](https://github.com/ryanfb/dzi-dl), [iiif-dl](https://github.com/ryanfb/iiif-dl), [dezoomify](https://github.com/lovasoa/dezoomify), [dezoomify-rs](https://github.com/lovasoa/dezoomify-rs)
 
 ## Requirements
 
