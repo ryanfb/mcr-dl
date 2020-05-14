@@ -43,7 +43,7 @@ files_url = ARGV[0].split('/')[0..-2].join('/')
 $stderr.puts "MCR derivate files base URL: #{files_url}"
 
 robotex = Robotex.new(USER_AGENT)
-doc = Nokogiri::XML(open(ARGV[0])).remove_namespaces!
+doc = Nokogiri::XML(URI.open(ARGV[0])).remove_namespaces!
 mycore = {}
 mycore[:tile_size] = 256 # hardcoded
 mycore[:format] = 'jpg' # hardcoded
@@ -68,7 +68,7 @@ begin
   for y in 0..(tiles_y - 1)
     for x in 0..(tiles_x - 1)
       retries = 0
-      tile_url = URI.escape(File.join(files_url, max_level.to_s, "#{y}/#{x}.#{mycore[:format]}"))
+      tile_url = Addressable::URI.normalized_encode(File.join(files_url, max_level.to_s, "#{y}/#{x}.#{mycore[:format]}"))
       if robotex.allowed?(tile_url)
         delay = robotex.delay(tile_url)
         tempfile = Tempfile.new(["#{x}_#{y}",".#{mycore[:format]}"])
@@ -76,7 +76,7 @@ begin
         tempfiles[y][x] = tempfile
         # progress_bar.log "Downloading tile #{x}_#{y}"
         begin
-          open(tile_url, OPEN_URI_OPTIONS) do |open_uri_response|
+          URI.open(tile_url, OPEN_URI_OPTIONS) do |open_uri_response|
             unless open_uri_response.meta['content-type'] == 'image/jpeg'
               raise "Got response content-type: #{open_uri_response.meta['content-type']}"
             end
