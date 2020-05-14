@@ -18,7 +18,7 @@ See also: [dzi-dl](https://github.com/ryanfb/dzi-dl), [iiif-dl](https://github.c
 
     bundle exec ./mcr-dl.rb 'http://example.com/servlets/MCRTileServlet/example_derivate_00001234/example_filename_300.jpg/imageinfo.xml'
 
-To find a `.xml` URL for a given Deep Zoom image viewer, you may need to open your web browser's Developer Tools and go to e.g. the "Network" pane, then reload the page and see what resources are loaded via AJAX.
+To find a `.xml` URL for a given MyCoRe image viewer, you may need to open your web browser's Developer Tools and go to e.g. the "Network" pane, then reload the page and see what resources are loaded via AJAX.
 
 Alternately, if you have [PhantomJS](http://phantomjs.org/) installed, you can use `xmlreqs.js` to list all URLs ending in `.xml` requested by a given webpage URL:
 
